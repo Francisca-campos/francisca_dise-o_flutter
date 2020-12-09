@@ -8,30 +8,71 @@ class BasicoPage extends StatelessWidget {
     return Scaffold(
         body: Column(
       children: <Widget>[
-        Image(
-          image: NetworkImage(
-              'https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
-        ),
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text('Lago con un puente', style: estiloTitulo),
-                    SizedBox(height: 7.0),
-                    Text('Un lago en Alemania', style: estiloSubtitulo),
-                  ],
-                ),
-              ),
-              Icon(Icons.star, color: Colors.red, size: 30.0),
-              Text('41', style: TextStyle(fontSize: 20.0))
-            ],
-          ),
-        )
+        _crearImagen(),
+        _crearTitulo(),
+        _crearAcciones(),
+        _crearTexto(),
       ],
     ));
+  }
+
+  Widget _crearImagen() {
+    return Image(
+      image: NetworkImage(
+          'https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+    );
+  }
+
+  Widget _crearTitulo() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('Lago con un puente', style: estiloTitulo),
+                SizedBox(height: 7.0),
+                Text('Un lago en Alemania', style: estiloSubtitulo),
+              ],
+            ),
+          ),
+          Icon(Icons.star, color: Colors.red, size: 30.0),
+          Text('41', style: TextStyle(fontSize: 20.0))
+        ],
+      ),
+    );
+  }
+
+  Widget _crearAcciones() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        _accion(Icons.call, 'CALL'),
+        _accion(Icons.near_me, 'ROUTE'),
+        _accion(Icons.share, 'Share'),
+      ],
+    );
+  }
+
+  Widget _accion(IconData icon, String texto) {
+    return Column(
+      children: <Widget>[
+        Icon(icon, color: Colors.blue, size: 40.0),
+        SizedBox(height: 5.0),
+        Text(texto, style: TextStyle(fontSize: 15.0, color: Colors.blue)),
+      ],
+    );
+  }
+
+  Widget _crearTexto() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+      child: Text(
+        'Occaecat est incididunt ullamco Lorem veniam velit non ipsum ea. Esse laborum minim labore nisi aliquip aliquip aliquip elit Lorem dolore. Exercitation sit labore dolor voluptate nostrud cillum culpa ut cillum culpa nisi in. Duis do aliqua commodo velit consectetur aute nostrud deserunt. Fugiat culpa sunt proident enim ullamco quis laboris laboris dolore. Veniam nisi adipisicing dolore proident ullamco veniam aute aute enim culpa cillum amet deserunt. Reprehenderit cillum excepteur do anim consequat ex sunt deserunt nulla.',
+        textAlign: TextAlign.justify,
+      ),
+    );
   }
 }
